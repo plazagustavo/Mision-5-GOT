@@ -50,21 +50,50 @@ def menu_de_casas():
         mostrar_menu()
 
 def unir_miembros():
-    print("¿Que casas desea unir?")
-    print("1. Lannister y Stark")
-    print("2. Stark y Targaryen")
-    print("3. Lannister y Targaryen")
+    print("\n")
+    print("Elige una casa para unir miembros: ")
+    print("1. Lannister")
+    print("2. Stark")
+    print("3. Targaryen")
     print("4. Volver")
 
+    
     opcion = leer_opcion("Ingrese una opcion: ", 1, 4)
-    if opcion == 1:
-        miembros_unidos = manejo_listas.concatenar_listas(casas.lannister.obtener_miembros(), casas.stark.obtener_miembros())
-        print(miembros_unidos)
-    elif opcion == 2:
-        miembros_unidos =manejo_listas.concatenar_listas(casas.stark.obtener_miembros(), casas.targaryen.obtener_miembros())
-        print(miembros_unidos)
-    elif opcion == 3:
-        miembros_unidos = manejo_listas.concatenar_listas(casas.lannister.obtener_miembros(), casas.targaryen.obtener_miembros())
-        print(miembros_unidos)
-    elif opcion == 4:
+
+    if opcion == 4:
         mostrar_menu()
+
+    print ("Selenccione con que casa dese unir miembros: ")
+    
+    if opcion == 1: # Lannister
+        print("1. Stark")
+        print("2. Targaryen")
+    elif opcion == 2: # Stark
+        print("1. Lannister")
+        print("2. Targaryen")
+    elif opcion == 3: # Targaryen
+        print("1. Lannister")
+        print("2. Stark")
+
+    print("3. Cancelar")
+
+    opcion2 = leer_opcion("Ingrese una opcion: ", 1, 3)
+
+    if opcion2 == 3:
+        print("Cancelaste la union de miembros")
+        unir_miembros()
+    
+
+    if opcion == 1 and opcion2 == 1:
+        print(manejo_listas.concatenar_listas(casas.lannister.obtener_miembros(), casas.stark.obtener_miembros()))
+    elif opcion == 1 and opcion2 == 2:
+        print(manejo_listas.concatenar_listas(casas.lannister.obtener_miembros(), casas.targaryen.obtener_miembros()))
+    elif opcion == 2 and opcion2 == 1:
+        print(manejo_listas.concatenar_listas(casas.stark.obtener_miembros(), casas.lannister.obtener_miembros()))
+    elif opcion == 2 and opcion2 == 2:
+        print(manejo_listas.concatenar_listas(casas.stark.obtener_miembros(), casas.targaryen.obtener_miembros()))
+    elif opcion == 3 and opcion2 == 1:
+        print(manejo_listas.concatenar_listas(casas.targaryen.obtener_miembros(), casas.lannister.obtener_miembros()))
+    elif opcion == 3 and opcion2 == 2:
+        print(manejo_listas.concatenar_listas(casas.targaryen.obtener_miembros(), casas.stark.obtener_miembros()))
+    
